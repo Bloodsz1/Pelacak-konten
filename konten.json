@@ -1,6 +1,6 @@
 [
     {
-        "judul": "wadah makan\\",
+        "judul": "wadah makan",
         "tanggal_upload": "2026-10-28",
         "konsep": "review",
         "views": 300
@@ -10,5 +10,11 @@
         "tanggal_upload": "2026-10-28",
         "konsep": "rekomendasi",
         "views": 320
+    },
+    {
+        "judul": "kaos anak",
+        "tanggal_upload": "2026-10-28",
+        "konsep": "rekomendasi",
+        "views": 10
     }
 ]

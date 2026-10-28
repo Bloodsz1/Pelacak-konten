@@ -5,7 +5,7 @@ from pathlib import Path
 FILE_KONTEN = Path(__file__).resolve().parent / "konten.json"
 
 def muat_konten():
-    """Baca daftar konten dari file JSON."""
+    """Baca daftar konten dari file json."""
     if not FILE_KONTEN.exists():
         print("Data konten belum tersedia")
         return []
@@ -15,7 +15,7 @@ def muat_konten():
 
 
 def simpan_konten(daftar_konten):
-    """Simpan daftar konten ke file JSON."""
+    """Simpan daftar konten ke file json."""
     with open(FILE_KONTEN, "w", encoding="utf-8") as file:  
         json.dump(daftar_konten, file, indent=4, ensure_ascii=False)
 
@@ -46,12 +46,17 @@ def lihat_konten(daftar_konten):
     if not konten:
         print ("Data belum tersedia")
     else :
-        print (konten)
+        print(f"\n{'Judul':<20} | {'Konsep':<17} | {'Views':<7}")
+        print("=" * 60)
+        for item in konten:
+            print(f"{item['judul']:<20} | {item['konsep']:<17} | {item['views']:<7} Views")
 
 
 konten = muat_konten()
 
 while True:
+    print("="*40)
+    print("Selamat datang di program pelacak konten.")
     print("\n1. Tambah konten\n2. Lihat konten\n3. Keluar")
     pilihan = input("Pilih: ").strip()
 
