@@ -46,15 +46,17 @@ def lihat_konten(daftar_konten):
     if not daftar_konten:
         print ("Data belum tersedia")
     else :
+        urut = sorted(daftar_konten, key=lambda item: item["views"],reverse=True)
         print(f"\n{'Judul':<20} | {'Konsep':<17} | {'Views':<7}")
         print("=" * 60)
-        for item in daftar_konten:
+        for item in urut:
             print(f"{item['judul']:<20} | {item['konsep']:<17} | {item['views']:<7} Views")
 
 
 konten = muat_konten()
 
 while True:
+    print("\n")
     print("="*40)
     print("Selamat datang di program pelacak konten.")
     print("\n1. Tambah konten\n2. Lihat konten\n3. Keluar")
