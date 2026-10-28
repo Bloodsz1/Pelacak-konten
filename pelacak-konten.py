@@ -43,12 +43,12 @@ def tambah_konten(daftar_konten):
 
 
 def lihat_konten(daftar_konten):
-    if not konten:
+    if not daftar_konten:
         print ("Data belum tersedia")
     else :
         print(f"\n{'Judul':<20} | {'Konsep':<17} | {'Views':<7}")
         print("=" * 60)
-        for item in konten:
+        for item in daftar_konten:
             print(f"{item['judul']:<20} | {item['konsep']:<17} | {item['views']:<7} Views")
 
 
