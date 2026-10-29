@@ -67,24 +67,25 @@ def hapus_konten(daftar_konten):
         for item in urut:
             print(f"{nomor} {item['judul']:<20} | {item['konsep']:<17} | {item['views']:<7} Views")
             nomor += 1
+    while True:
+        try:
+            hapus_nomor = int(input("\nMasukkan nomor konten yang ingin dihapus: ").strip())
+            if 1 <= hapus_nomor <= len(urut):
+                break
+            else:
+                print("Nomor konten tidak valid,coba lagi!")
+        except (IndexError, ValueError):
+            print("Input tidak valid. Harap masukkan nomor konten yang benar.")
+            
 
-    try:
-        hapus_nomor = int(input("\nMasukkan nomor konten yang ingin dihapus: ").strip())
-    except (IndexError, ValueError):
-        print("Input tidak valid. Harap masukkan nomor konten yang benar.")
-        return
-
-    if 1 <= hapus_nomor <= len(urut):
-        index = urut[hapus_nomor - 1]
-        yakin = input("Apakah Anda yakin ingin menghapus konten ini? (y/n): ").strip().lower()
-        if yakin == 'y':
-            daftar_konten.remove(index)
-            simpan_konten(daftar_konten)
-            print("Nomor konten yang dihapus: ", hapus_nomor)
-        else:
-            print("Penghapusan konten dibatalkan.")
+    konten_dipilih = urut[hapus_nomor - 1]
+    yakin = input("Apakah Anda yakin ingin menghapus konten ini? (y/n): ").strip().lower()
+    if yakin == 'y':
+        daftar_konten.remove(konten_dipilih)
+        simpan_konten(daftar_konten)
+        print("Nomor konten yang dihapus: ", hapus_nomor)
     else:
-        print("Nomor konten tidak valid")
+        print("Penghapusan konten dibatalkan.")
 
 
 konten = muat_konten()
