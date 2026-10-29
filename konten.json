@@ -1,26 +1,14 @@
 [
     {
-        "judul": "wadah makan",
-        "tanggal_upload": "2026-10-28",
-        "konsep": "review",
-        "views": 300
-    },
-    {
-        "judul": "botol minum",
-        "tanggal_upload": "2026-10-28",
-        "konsep": "rekomendasi",
-        "views": 320
-    },
-    {
-        "judul": "kaos anak",
-        "tanggal_upload": "2026-10-28",
-        "konsep": "rekomendasi",
-        "views": 10
-    },
-    {
         "judul": "laptop",
         "tanggal_upload": "2026-10-28",
         "konsep": "tutorial",
         "views": 5000
+    },
+    {
+        "judul": "belajar python",
+        "tanggal_upload": "2026-10-29",
+        "konsep": "flog",
+        "views": 2000
     }
 ]

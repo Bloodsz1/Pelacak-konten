@@ -47,10 +47,40 @@ def lihat_konten(daftar_konten):
         print ("Data belum tersedia")
     else :
         urut = sorted(daftar_konten, key=lambda item: item["views"],reverse=True)
-        print(f"\n{'Judul':<20} | {'Konsep':<17} | {'Views':<7}")
+        print(f"\n{'Judul':<22} | {'Konsep':<17} | {'Views':<7}")
         print("=" * 60)
+        nomor = 1
         for item in urut:
-            print(f"{item['judul']:<20} | {item['konsep']:<17} | {item['views']:<7} Views")
+            print(f"{nomor} {item['judul']:<20} | {item['konsep']:<17} | {item['views']:<7} Views")
+            nomor += 1
+
+def hapus_konten(daftar_konten):
+    try:
+        if not daftar_konten:
+            print("Tidak ada konten yang tersedia")
+        else:
+            urut = sorted(daftar_konten, key=lambda item: item["views"],reverse=True)
+            print(f"\n{'Judul':<22} | {'Konsep':<17} | {'Views':<7}")
+            print("=" * 60)
+            nomor = 1
+            for item in urut:
+                print(f"{nomor} {item['judul']:<20} | {item['konsep']:<17} | {item['views']:<7} Views")
+                nomor += 1
+
+        hapus_nomor = int(input("\nMasukkan nomor tugas yang ingin dihapus: ").strip())
+        if 1 <= hapus_nomor <= len(daftar_konten):
+            index = hapus_nomor - 1
+            yakin = input("Apakah Anda yakin ingin menghapus tugas ini? (y/n): ").strip().lower()
+            if yakin == 'y':
+                del daftar_konten[index]
+                simpan_konten(daftar_konten)
+                print("Nomor konten yang dihapus: ", hapus_nomor)
+            else:
+                print("Penghapusan konten dibatalkan.")
+        else:
+            print("Nomor konten tidak valid")
+    except (IndexError, ValueError):
+        print("Input tidak valid. Harap masukkan nomor konten yang benar.")
 
 
 konten = muat_konten()
@@ -59,7 +89,7 @@ while True:
     print("\n")
     print("="*40)
     print("Selamat datang di program pelacak konten.")
-    print("\n1. Tambah konten\n2. Lihat konten\n3. Keluar")
+    print("\n1. Tambah konten\n2. Lihat konten\n3. Hapus konten\n4. Keluar")
     pilihan = input("Pilih: ").strip()
 
     if pilihan == "1":
@@ -67,6 +97,8 @@ while True:
     elif pilihan == "2":
         lihat_konten(konten)
     elif pilihan == "3":
+        hapus_konten(konten)
+    elif pilihan == "4":
         break
     else:
         print("Pilihan tidak tersedia.")
