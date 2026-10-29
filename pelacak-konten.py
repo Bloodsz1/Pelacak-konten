@@ -45,6 +45,7 @@ def tambah_konten(daftar_konten):
 def lihat_konten(daftar_konten):
     if not daftar_konten:
         print ("Data belum tersedia")
+        return
     else :
         urut = sorted(daftar_konten, key=lambda item: item["views"],reverse=True)
         print(f"\n{'Judul':<22} | {'Konsep':<17} | {'Views':<7}")
