@@ -105,7 +105,7 @@ def hitung_konsep(daftar_konsep):
             hitung[konsep] += 1
         else:
             hitung[konsep] = 1
-    print(hitung)
+    return hitung
 
 
 konten = muat_konten()
