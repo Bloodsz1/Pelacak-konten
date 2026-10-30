@@ -1,7 +1,16 @@
-semua = [
-    {"judul": "Belajar Python", "tanggal_upload": "2026-10-28", "konsep": "storytelling", "views": 1500},
-    {"judul": "Review Produk", "tanggal_upload": "2026-10-29", "konsep": "review", "views": 800},
+kategori= [
+    {"judul":"Bakwan","konsep":"vlog"},
+    {"judul":"Bakso","konsep":"vlog"},
+    {"judul":"Laptop","konsep":"Tutorial"},
+    {"judul":"Kaos","konsep":"review"},
 ]
-urut = sorted(semua, key=lambda konten: konten["views"],reverse=True)
-for item in semua:
-    print(f"{item['judul']:<20} | {item['konsep']:<17} | {item['views']:<7} Views")
+
+hitung = {}
+for b in kategori:
+    konsep = b["konsep"]
+    if konsep in hitung:
+        hitung[konsep] += 1
+    else:
+        hitung[konsep] = 1
+
+print(hitung)
