@@ -96,6 +96,18 @@ def hapus_konten(daftar_konten):
         print("Penghapusan konten dibatalkan.")
 
 
+def hitung_konsep(daftar_konsep):
+    hitung = {}
+    for b in daftar_konsep:
+        konsep = b["konsep"]
+
+        if konsep in hitung:
+            hitung[konsep] += 1
+        else:
+            hitung[konsep] = 1
+    print(hitung)
+
+
 konten = muat_konten()
 
 while True:
