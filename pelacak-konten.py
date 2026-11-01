@@ -121,6 +121,17 @@ def ringkasan_konsep(daftar_konten):
         print(f"{konsep:<17} | {jumlah:<6}")
 
 
+def total_views_konsep(daftar_konten):
+    total = {}
+    for item in daftar_konten:
+        konsep = item["konsep"]
+        if konsep in total:
+            total[konsep] += item["views"]
+        else:
+            total[konsep] = item["views"]
+    return total
+
+
 konten = muat_konten()
 
 while True:
@@ -128,7 +139,7 @@ while True:
     print("=" * 40)
     print("Selamat datang di program pelacak konten.")
     print(
-        "\n1. Tambah konten\n2. Lihat konten\n3. Hapus konten\n4. Ringkasan konsep\n5. Keluar"
+        "\n1. Tambah konten\n2. Lihat konten\n3. Hapus konten\n4. Ringkasan konsep\n5. Total views per konsep\n6. Keluar"
     )
     pilihan = input("Pilih: ").strip()
 
@@ -141,6 +152,8 @@ while True:
     elif pilihan == "4":
         ringkasan_konsep(konten)
     elif pilihan == "5":
+        total_views_konsep(konten)
+    elif pilihan == "6":
         break
     else:
         print("Pilihan tidak tersedia.")
