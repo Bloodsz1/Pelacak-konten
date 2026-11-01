@@ -108,6 +108,19 @@ def hitung_konsep(daftar_konsep):
     return hitung
 
 
+def ringkasan_konsep(daftar_konten):
+    if not daftar_konten:
+        print("Data belum tersedia")
+        return
+
+    hasil = hitung_konsep(daftar_konten)
+
+    print(f"\n{'Konsep':<17} | {'Jumlah':<6}")
+    print("=" * 26)
+    for konsep, jumlah in hasil.items():
+        print(f"{konsep:<17} | {jumlah:<6}")
+
+
 konten = muat_konten()
 
 while True:
