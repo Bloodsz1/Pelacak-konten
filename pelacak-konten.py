@@ -23,7 +23,7 @@ def simpan_konten(daftar_konten):
 
 def tambah_konten(daftar_konten):
     judul = input("Judul konten: ").strip()
-    konsep = input("Konsep (misal: storytelling, review, tutorial): ").strip()
+    konsep = input("Konsep (misal: storytelling, review, tutorial): ").strip().lower()
     while True:
         try:
             views = int(input("Views: "))
