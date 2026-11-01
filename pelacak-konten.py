@@ -127,7 +127,9 @@ while True:
     print("\n")
     print("=" * 40)
     print("Selamat datang di program pelacak konten.")
-    print("\n1. Tambah konten\n2. Lihat konten\n3. Hapus konten\n4. Keluar")
+    print(
+        "\n1. Tambah konten\n2. Lihat konten\n3. Hapus konten\n4. Ringkasan konsep\n5. Keluar"
+    )
     pilihan = input("Pilih: ").strip()
 
     if pilihan == "1":
@@ -137,6 +139,8 @@ while True:
     elif pilihan == "3":
         hapus_konten(konten)
     elif pilihan == "4":
+        ringkasan_konsep(konten)
+    elif pilihan == "5":
         break
     else:
         print("Pilihan tidak tersedia.")
