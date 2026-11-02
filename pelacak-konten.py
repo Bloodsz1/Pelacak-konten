@@ -168,6 +168,50 @@ def dashboard_statistik(daftar_konten):
     print("=" * 40)
 
 
+def analisis_performa(daftar_konten):
+    """Menganalisis performa konten berdasarkan konsep."""
+
+    if not daftar_konten:
+        print("Data konten belum tersedia.")
+        return
+
+    analisis = {}
+
+    for item in daftar_konten:
+        konsep = item["konsep"]
+        views = item["views"]
+
+        if konsep not in analisis:
+            analisis[konsep] = {"jumlah_konten": 0, "total_views": 0}
+
+        analisis[konsep]["jumlah_konten"] += 1
+        analisis[konsep]["total_views"] += views
+
+    print("\n" + "=" * 45)
+    print("          ANALISIS PERFORMA KONTEN")
+    print("=" * 45)
+
+    for konsep, data in analisis.items():
+        rata_rata = data["total_views"] / data["jumlah_konten"]
+
+        data["rata_rata"] = rata_rata
+
+        print(f"\nKonsep: {konsep.upper()}")
+        print(f"Jumlah konten : {data['jumlah_konten']}")
+        print(f"Total views  : {data['total_views']:,}")
+        print(f"Rata-rata    : {rata_rata:,.2f}")
+
+    konsep_terbaik = max(analisis.items(), key=lambda item: item[1]["rata_rata"])
+
+    print("\n" + "=" * 45)
+    print("             KONSEP TERBAIK")
+    print("=" * 45)
+
+    print(f"Konsep       : {konsep_terbaik[0].upper()}")
+    print(f"Rata-rata    : {konsep_terbaik[1]['rata_rata']:,.2f}")
+    print("=" * 45)
+
+
 konten = muat_konten()
 
 while True:
@@ -175,7 +219,7 @@ while True:
     print("=" * 40)
     print("Selamat datang di program pelacak konten.")
     print(
-        "\n1. Tambah konten\n2. Lihat konten\n3. Hapus konten\n4. Ringkasan konsep\n5. Total views per konsep\n6. Dashboard Statistik\n7. Keluar"
+        "\n1. Tambah konten\n2. Lihat konten\n3. Hapus konten\n4. Ringkasan konsep\n5. Total views per konsep\n6. Dashboard Statistik\n7. Analisis Performa Konten\n8. Keluar"
     )
     pilihan = input("Pilih: ").strip()
 
@@ -192,6 +236,8 @@ while True:
     elif pilihan == "6":
         dashboard_statistik(konten)
     elif pilihan == "7":
+        analisis_performa(konten)
+    elif pilihan == "8":
         break
     else:
         print("Pilihan tidak tersedia.")
