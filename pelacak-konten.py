@@ -132,6 +132,42 @@ def total_views_konsep(daftar_konten):
     return total
 
 
+def dashboard_statistik(daftar_konten):
+    """Menampilkan statistik keseluruhan konten."""
+
+    if not daftar_konten:
+        print("Data konten belum tersedia.")
+        return
+
+    total_konten = len(daftar_konten)
+
+    total_views = sum(item["views"] for item in daftar_konten)
+
+    rata_rata = total_views / total_konten
+
+    konten_tertinggi = max(daftar_konten, key=lambda item: item["views"])
+
+    konten_terendah = min(daftar_konten, key=lambda item: item["views"])
+
+    print("\n" + "=" * 40)
+    print("          DASHBOARD STATISTIK")
+    print("=" * 40)
+
+    print(f"Total konten       : {total_konten}")
+    print(f"Total views        : {total_views:,}")
+    print(f"Rata-rata views    : {rata_rata:,.2f}")
+
+    print("\nKONTEN TERBAIK")
+    print(f"Judul              : {konten_tertinggi['judul']}")
+    print(f"Views              : {konten_tertinggi['views']:,}")
+
+    print("\nKONTEN TERENDAH")
+    print(f"Judul              : {konten_terendah['judul']}")
+    print(f"Views              : {konten_terendah['views']:,}")
+
+    print("=" * 40)
+
+
 konten = muat_konten()
 
 while True:
@@ -139,7 +175,7 @@ while True:
     print("=" * 40)
     print("Selamat datang di program pelacak konten.")
     print(
-        "\n1. Tambah konten\n2. Lihat konten\n3. Hapus konten\n4. Ringkasan konsep\n5. Total views per konsep\n6. Keluar"
+        "\n1. Tambah konten\n2. Lihat konten\n3. Hapus konten\n4. Ringkasan konsep\n5. Total views per konsep\n6. Dashboard Statistik\n7. Keluar"
     )
     pilihan = input("Pilih: ").strip()
 
@@ -154,7 +190,10 @@ while True:
     elif pilihan == "5":
         total_views_konsep(konten)
     elif pilihan == "6":
+        dashboard_statistik(konten)
+    elif pilihan == "7":
         break
     else:
         print("Pilihan tidak tersedia.")
 print("Sekian terima gaji")
+print("Terima kasih telah menggunakan program ini")
