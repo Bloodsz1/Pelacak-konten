@@ -122,6 +122,9 @@ def ringkasan_konsep(daftar_konten):
 
 
 def total_views_konsep(daftar_konten):
+    if not daftar_konten:
+        print("Data belum tersedia")
+        return
     total = {}
     for item in daftar_konten:
         konsep = item["konsep"]
@@ -129,6 +132,10 @@ def total_views_konsep(daftar_konten):
             total[konsep] += item["views"]
         else:
             total[konsep] = item["views"]
+    print(f"\n{'Konsep':<17} | {'Total Views':<11}")
+    print("=" * 31)
+    for konsep, jumlah_views in total.items():
+        print(f"{konsep:<17} | {jumlah_views:<11}")
     return total
 
 

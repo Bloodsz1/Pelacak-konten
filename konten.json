@@ -10,5 +10,11 @@
         "tanggal_upload": "2026-10-29",
         "konsep": "flog",
         "views": 2000
+    },
+    {
+        "judul": "python",
+        "tanggal_upload": "2026-11-03",
+        "konsep": "tutorial",
+        "views": 200
     }
 ]
