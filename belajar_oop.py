@@ -1,20 +1,12 @@
 class Hero:
-    pass
+    def __init__(self, nama):
+        self.nama = nama
 
 
-hero1 = Hero()
-hero2 = Hero()
-hero3 = Hero()
+hero1 = Hero("Sniper")
+hero2 = Hero("Sven")
+hero3 = Hero("Ucup")
 
-hero1.name = "Sniper"
-hero1.health = 100
-
-hero2.name = "Sven"
-hero2.health = 200
-
-hero3.name = "Ucup"
-hero3.health = 1000
-
-print(hero1.__dict__)
-print(hero1.name)
-print(hero1.health)
+print(hero1.nama)
+print(hero2.nama)
+print(hero3.nama)
